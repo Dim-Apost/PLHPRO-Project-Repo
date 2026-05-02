@@ -1,5 +1,6 @@
 from classes.user import User
 from classes.activity import Hobbie,Task
+from src.classes.fileMethods import *
 
 #τεστ ότι δουλεύουν οι κλάσεις και οι συναρτήσεις
 def app():
@@ -23,7 +24,9 @@ def app():
 # --- Κύριο Μενού ---
 def main():
     # Η τοπική λίστα που θα κρατάει τα δεδομένα μας κατά την εκτέλεση
-    read_log_file = 'user_names_log.csv'
+    read_log_file = 'usersDB.txt'
+    users = read_users(read_log_file)
+    print(users)
 
     while True:
         print("\n=== MENOY ΔΙΑΧΕΙΡΙΣΗΣ ΧΡΟΝΟΥ ===")
@@ -38,25 +41,24 @@ def main():
                 name = input("Όνομα: ")
                 email = input("email: ")
                 password = input("password: ")
-                our_spend_activities = input("Εκτιμώμενος χρόνος υποχρεώσεων: ")
-                our_spend_hobbies = input("Εκτιμώμενος χρόνος δραστηριοτήτων: ")
-                read_log_file.add_new_user(new_user)
+                our_spend_activities = input("Εκτιμώμενος χρόνος υποχρεώσεων σε ώρες: ")
+                our_spend_hobbies = input("Εκτιμώμενος χρόνος δραστηριοτήτων σε ώρες: ")
+                # προσθήκη νέου χρήστη στήν λίστα.
+                users.append(User(name, email, password, our_spend_activities, our_spend_hobbies))
                 print("Συγχαρητήρια!\nΝέος χρήστης προστέθηκε με επιτυχία")
             elif choice == 'b':
                 email = input("email: ")
                 password = input("password: ")
-                #read_log_file.add_new_user(new_user) να γίνει αλλαγή σε διάβασμα δεδομένων
                 print("Συνδεθήκατε")
             else:
                 print ("Ops!\nΠληκτρολόγησες δεδομένα :( \nΞαναπροσπάθησε")
 
-        elif choice == '9':
+        elif choice == '2':
+            write_users("usersDB.txt", users)
             print("Έξοδος...")
             break
         else:
             print("Λάθος επιλογή, προσπαθήστε ξανά.")
-
-        choice = input("Επιλογή: ")
 
 if __name__ == "__main__":
     app() #τεστ ότι δουλεύουν οι κλάσεις και οι συναρτήσεις
