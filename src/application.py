@@ -1,12 +1,5 @@
 from classes.user import User
 from classes.activity import Hobbie,Task
-import tkinter as tk
-import tkinter
-from tkinter import ttk
-
-window = tk.Tk() #φτιάχνω παράθυρο
-window.title("Project53 (Διαχείριση Χρόνου)") #τίτλος παραθύρου πάνω αριστερά
-window.minsize(width=800, height=600) #ελάχιστο μέγεθος παραθύρου
 
 #τεστ ότι δουλεύουν οι κλάσεις και οι συναρτήσεις
 def app():
@@ -26,6 +19,7 @@ def app():
     task1.edit_priority(7)
     print(task1)
 
+print("test")
 
 # --- Κύριο Μενού ---
 def main():
@@ -57,15 +51,13 @@ def main():
             else:
                 print ("Ops!\nΠληκτρολόγησες δεδομένα :( \nΞαναπροσπάθησε")
 
-        elif choice == '9':
+        elif choice == '2':
             print("Έξοδος...")
             break
         else:
             print("Λάθος επιλογή, προσπαθήστε ξανά.")
 
         choice = input("Επιλογή: ")
-
-window.mainloop()
 
 if __name__ == "__main__":
     app() #τεστ ότι δουλεύουν οι κλάσεις και οι συναρτήσεις
