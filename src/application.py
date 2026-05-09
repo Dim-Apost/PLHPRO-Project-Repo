@@ -26,6 +26,7 @@ def main():
     users = read_users(read_log_file)
     print(users)
 
+
     while True:
         print("\n=== MENOY ΔΙΑΧΕΙΡΙΣΗΣ ΧΡΟΝΟΥ ===")
         print("1. Εισαγωγή Δεδομένων")
@@ -44,7 +45,8 @@ def main():
                 # προσθήκη νέου χρήστη στήν λίστα.
                 users.append(User(name, email, password, our_spend_activities, our_spend_hobbies))
                 print("Συγχαρητήρια!\nΝέος χρήστης προστέθηκε με επιτυχία")
-            elif choice == 'b':
+            elif sign_in_choice == 'b':
+                print("--Διαθέσιμοι χρήστες--\n")
                 email = input("email: ")
                 password = input("password: ")
                 print("Συνδεθήκατε")
